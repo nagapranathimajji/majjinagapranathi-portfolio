@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Resume{% endblock %}
+
+{% block content %}
+<section class="resume-section">
+  <div class="resume-container">
+    <h2>📄 Resume</h2>
+    <p class="resume-sub">A quick look at my background and skills</p>
+
+    <div class="resume-box">
+      <h4>2022 – 2026</h4>
+      <h3>NRI INSTITUTE OF TECHNOLOGY</h3>
+      <p>B.Tech, Agiripalli</p>
+      <p>Currently pursuing B.Tech in Computer Science with a strong focus on Generative AI and Web Development.</p>
+    </div>
+
+    <div class="resume-box">
+      <h4>2020 – 2022</h4>
+      <h3>Sri Chaitanya</h3>
+      <p>Intermediate, Vijayawada</p>
+      <p>Completed intermediate with excellent foundation in science and mathematics.</p>
+    </div>
+
+    <div class="resume-box">
+      <h3>Skills</h3>
+      <ul class="resume-skills">
+        <li>Python</li><li>Flask</li><li>LLMs</li><li>RAG</li><li>SQL</li><li>Frontend Dev</li>
+      </ul>
+    </div>
+
+    <div class="resume-box">
+      <h3>Languages</h3>
+      <ul class="resume-skills">
+        <li>Telugu</li><li>English</li><li>Hindi</li>
+      </ul>
+    </div>
+
+    <a href="{{ url_for('static', filename='NagaPranathiMajji_Resume.pdf') }}" download>
+      <button class="resume-download">Download Resume</button>
+    </a>
+  </div>
+</section>
+{% endblock %}

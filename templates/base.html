@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Naga Pranathi Majji – passionate about Generative AI, Web Dev, and Python.">
+<meta name="keywords" content="Portfolio, Naga Pranathi Majji, naga pranathi majji, nagapranathimajji, NRIIT , CSE student, AI, Web Development, LLM, Python, Flask">
+<meta name="author" content="Naga Pranathi Majji">
+
+<!-- Open Graph for Social Sharing -->
+<meta property="og:title" content="Naga Pranathi Majji – Portfolio">
+<meta property="og:description" content="Explore my projects, resume, and interests in AI & Web Development.">
+<meta property="og:image" content="{{ url_for('static', filename='profile.jpg') }}">
+<meta property="og:url" content="https://majjinagapranathi.pythonanywhere.com">
+<meta name="twitter:card" content="summary_large_image">
+
+  <title>{% block title %}Portfolio{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+  <div class="header-left">
+    <span class="logo-dot"></span>
+    <span class="site-name"><strong>M. N. Pranathi</strong> <span class="slash">/</span> AIML Enthusiast</span>
+  </div>
+
+  <nav class="nav-links">
+    <a href="{{ url_for('home') }}">About</a>
+    <a href="{{ url_for('resume') }}">Resume</a>
+    <a href="{{ url_for('projects') }}">Projects</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+  </nav>
+
+  <div class="header-right">
+    <button id="theme-toggle">🌓</button>
+  </div>
+</header>
+
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    &copy; 2025 Naga Pranathi Majji. All rights reserved.
+  </footer>
+  <script>
+  const toggle = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  toggle.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  });
+</script>
+
+</body>
+</html>

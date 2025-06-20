@@ -1,0 +1,358 @@
+/* Fix color for 'Naga Pranathi Majji' in light and dark modes */
+.hero h1 span,
+.about-text h1 span {
+  color: #191970 !important; /* Locked to light theme accent */
+}
+
+/* Dark mode override for 'My Projects' heading */
+[data-theme="dark"] .section#projects h2 {
+  color: #f5f5dc /* Uses dark theme accent */
+}
+
+/* Theme Variables */
+:root {
+  --card-bg: white;
+  --card-text: #2c2c2c;
+  --nav-bg: linear-gradient(to right, #ffffffcc, #fefefecc);
+  --nav-text: #2c2c2c;
+  --bg: linear-gradient(to bottom right, #fff5f7, #e1e9f7);
+  --text: #2c2c2c;
+  --accent: #ff758c;
+}
+
+[data-theme="dark"] {
+  --card-bg: #2b2b3a;
+  --card-text: #f1f1f1;
+  --nav-bg: linear-gradient(to right, #2a2a3b, #2d2d44);
+  --nav-text: #f1f1f1;
+  --bg: linear-gradient(to bottom right, #1e1e2f, #2b2b3f);
+  --text: #f1f1f1;
+  --accent: #ff8fa3;
+}
+
+/* Global Styles */
+html {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+body, nav a, button, .card {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Header/Navbar */
+header {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  /*padding: 16px 24px;*/
+  padding: 1rem 2rem;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 12px auto;
+  /*max-width: 1200px;*/
+  flex-wrap: wrap;
+}
+
+/* Header Left Content */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+}
+
+.logo-dot {
+  width: 14px;
+  height: 14px;
+  background-color: #191970; /* Matches your blue accent */
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.site-name {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.slash {
+  margin: 0 6px;
+  color: #888;
+}
+
+/* Header Right Content */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+nav a {
+  text-decoration: none;
+  color: var(--nav-text);
+  font-weight: 500;
+  font-size: 1rem;
+  position: relative;
+}
+nav a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: var(--accent);
+  width: 0;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+nav a:hover::after {
+  width: 100%;
+}
+nav a:hover {
+  color: var(--accent);
+}
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* CTA Buttons */
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cta button {
+  background: linear-gradient(to right, #667eea, #764ba2);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.cta button:hover {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 70px 20px;
+  background: linear-gradient(to right, #89f7fe, #66a6ff);
+}
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--text);
+}
+
+/* Image Slider */
+.slider {
+  display: flex;
+  overflow: hidden;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 1000px;
+}
+.slider-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+}
+.slider-track img {
+  width: 250px;
+  height: 160px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Sections */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Project Cards */
+.card-list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 280px;
+  animation: fadeInUp 0.6s ease-in both;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid var(--accent);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* About Section */
+.about-hero {
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1000px;
+  gap: 40px;
+  justify-content: center;
+  text-align: left;
+}
+.about-img img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.about-text {
+  max-width: 500px;
+}
+.about-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.about-text h3 {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+.about-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* Contact Section */
+.contact-section {
+  background: linear-gradient(to right, #f2709c, #ff9472);
+  color: white;
+  padding: 60px 20px;
+}
+.contact-section button {
+  background-color: white;
+  color: #f2709c;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-section button:hover {
+  background-color: #ffebf0;
+  color: var(--accent);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cta {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text h1 {
+    font-size: 2rem;
+  }
+
+  .about-img img {
+    width: 180px;
+    height: 180px;
+  }
+}
